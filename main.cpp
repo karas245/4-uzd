@@ -1,57 +1,46 @@
 #include "classVector.h"
 
+#include <vector>
 
 int main()
 {
 
-
-    Vector<int> n(10,9);
-
-    n.pushBack(98);cout << "\n";
-    int sk=n.getSz();
-
-    for(int i=sk;i<sk+10;i++)
-        n.pushBack(i);
-    cout << n.getSz() << " ////////" << endl;
-    for(int i=0;i<n.getSz();i++)
+    std::vector<int> v1;
+    Vector<int> v2;
+    /*
+    auto start = std::chrono::system_clock::now();
+    for(int i=0;i<1000000;i++)
     {
-        n[i]=n[i]-1;
-        cout << n[i] << " " ;
+        v1.push_back(i);
+        //if(i%100000==0) cout << v1[i] << endl;
     }
 
-    cout << endl;
-    cout << n.Back() << endl;
-    for(int i=0;i<n.getSz();i++)
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end-start;
+    cout << "Programa uztruko : " << elapsed_seconds.count() << " sekundziu\n";*/
+    int szs = 0;
+	int v1_add = 0;
+	int v2_add = 0;
+
+    for (int i=0;i<1000000;i++)
     {
+		if (v1.capacity() != szs) {
+			szs = v1.capacity();
+			v1_add++;
+		}
+		v1.push_back(i);
+	}
+	szs = 0;
 
-        cout << n[i] << " " ;
-    }cout << endl;
-    cout << n.getSz() << " ******" << endl;
-    for(int i=0;i<n.getSz();i++)
+	for (int i=0;i<1000000;i++)
     {
+		if (v2.capacity() != szs) {
+			szs = v2.capacity();
+			v2_add++;
+		}
+		v2.push_back(i);
+	}
 
-        cout << n[i] << " " ;
-    }cout << endl;
-    cout << n[50] << endl; cout << " ***";
-    cout << n[2] << " veikia" << endl;
-    for(int i=0;i<n.getSz();i++)
-    {
-
-        cout << n[i] << " " ;
-    }cout << endl;
-    n.popBack();
-    for(int i=0;i<n.getSz();i++)
-    {
-
-        cout << n[i] << " " ;
-    }cout << endl;
-    for(int i=0;i<n.getSz();i++)
-    {
-
-        cout << n[i] << " " ;
-    }cout << endl;
-
-
-
+	cout << v1_add << " " << v2_add << endl;
     return 0;
 }
