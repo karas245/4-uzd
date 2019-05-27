@@ -15,6 +15,7 @@ Sukuriami vektoriai ir užpildomi int reikšmėmis [0 ; dydis)
 ### 3) Atminties perskirstymas
  
  std::vector<int> 21 karta
+ #
  custom vector 1000 kartų
  
  
