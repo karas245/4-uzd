@@ -1,5 +1,24 @@
 # 4-uzd
 
+### 1) Funkcijos
+
+```c++
+void shrink_to_fit()
+     {
+         if (sz == cap) return;
+
+         T *tem = elem;
+         elem=new T[sz];
+         for(int i=0;i<sz;i++)
+         {
+             elem[i]=tem[i];
+         }
+         cap = sz;
+         delete[] tem;
+
+     }
+ ```
+
 ### 2) Analizė
 
 #### ``` vector<int> ```
@@ -16,5 +35,9 @@ Sukuriami vektoriai ir užpildomi int reikšmėmis [0 ; dydis)
  
 #### std::vector<int> 21 karta
 #### custom vector 1000 kartų
+
+### 4) Užpildo 100 000 studentų sąrašu
+#### std::vector 0.226447 sekundes
+#### custom vector 64.9517 sekundes
  
  
