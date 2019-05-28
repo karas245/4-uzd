@@ -160,6 +160,7 @@ public:
         {
             elem[i]=temp[i];
         }
+        delete[] temp;
 
     }
     void reserve()
@@ -175,6 +176,7 @@ public:
     {
         delete[] elem;
         sz = 0;
+        cap=0;
     }
     void shrink_to_fit()
      {
