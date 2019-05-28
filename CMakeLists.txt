@@ -11,4 +11,5 @@ add_executable(4-uzd
         main.cpp
         classVector.cpp
         classVector.h
+	fun.h
         )
